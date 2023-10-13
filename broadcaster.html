@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webcam Broadcaster</title>
+</head>
+<body>
+    <h1>Webcam Broadcaster</h1>
+    <video id="live-cam" autoplay></video>
+    <script>
+        const videoElement = document.getElementById('live-cam');
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+            .then((stream) => {
+                videoElement.srcObject = stream;
+            })
+            .catch((error) => {
+                console.error('Error accessing camera:', error);
+            });
+    </script>
+</body>
+</html>
+
